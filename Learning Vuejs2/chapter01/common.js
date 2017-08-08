@@ -27,4 +27,9 @@ $(document).ready(function(){
 
     $('.js-add').click(onAdd);
     $('.js-item').click(toggleRemoved);
+
+    function onChangeTitle() {
+        $('h2').text($('.js-change-title').val());
+    }
+    $('.js-change-title').keyup(onChangeTitle);
 });
