@@ -1,4 +1,4 @@
-##VueJs
+##VueJs - 참조 : http://meetup.toast.com/posts/99
 
 ###개발/구동 환경
 ####의존성
