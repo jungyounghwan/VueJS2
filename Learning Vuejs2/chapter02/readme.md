@@ -96,3 +96,23 @@
        var vm = new Vue({
            el: '#example'
        });
+
+
+##8/22
+###지시자
+- v-model
+- v-if
+- v-show
+- v-커스텀
+
+    
+        Vue.directive('my-directive', function(el, binding){
+        // 값이 바인딩될 때 무엇인가 한다
+        })
+        
+        
+###플러그인
+- 전역 속성이나 메소드를 추가하는 플러그인(vue-element)
+- 전역 자원들을 등록하는 플러그인(vue-touch)
+- 뷰이 prototype 속성을 이용해 뷰 생성자 메소드를 추가하는 플러그인
+- API나 외부 기능을 제공하는 플러그인(vue- router)
