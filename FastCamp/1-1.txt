@@ -1,0 +1,9 @@
+vue 시작하기 - 설치 part
+1. standalone
+2. npm
+3. bower
+
+
+
+[참고자료]
+- jsfiddle.net
