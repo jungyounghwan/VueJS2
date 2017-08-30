@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-on="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>calculator</title>
+</head>
+<body>
+    <div id="app">
+        몇단? <input v-model="inputNum" type="text">
+        <button type="button" v-on:click="calculator">결과</button>
+        <ul>
+            <li v-for="result in results">{{result}}</li>
+        </ul>
+        </ul>
+    </div>
+    <script src="../js/vue.js"></script>
+    <script>
+        new Vue({
+            el : '#app',
+            data: {
+                results : [],
+                inputNum : ''
+            },
+            methods: {
+                calculator: function () {
+                    var dan = this.inputNum;
+                    var count = 1;
+
+                    while(count <= 9) {
+                        var aaa = dan * count;
+                        this.results.push(aaa);
+                        count = count + 1;
+                    }
+                }
+            }
+        })
+    </script>
+</body>
+</html>
