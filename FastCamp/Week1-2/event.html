@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-on="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Hellow Vue</title>
+    <style>
+        #box {width:200px;height:200px;background:red;}
+        #box2 {width:100px;height:100px;background:blue;margin-top:20px}
+    </style>
+</head>
+<body>
+    <div id="app">
+        <div id="box" @click="alertMessage('box')">
+            <div id="box2" @click.stop="alertMessage('box2')"></div>
+        </div>
+    </br>
+    </div>
+    <script src="../../js/vue.js"></script>
+    <script>
+        new Vue({
+            el : '#app',
+            methods: {
+                alertMessage: function (message) {
+                    alert (message);
+                }
+            }
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-on="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Hellow Vue</title>
+</head>
+<body>
+    <div id="app">
+       <button @click="alertNow">현재 시각은?</button>
+    </div>
+    <script src="../../js/vue.js"></script>
+    <script>
+        /*new Vue({
+            el : '#app',
+            methods : {
+                alertNow : function () {
+                    alert(this.now);
+                }
+            },
+            computed : {
+                now : function () {
+                    return Date.now() // 값이 변하지 않는다
+                }
+            }
+        });*/
+
+        var vm = new Vue({
+            el : '#app',
+            methods : {
+                alertNow : function () {
+                    alert(this.now());
+                },
+                now: function () {
+                    return Date.now() // 값이 변한다
+                }
+            }
+        });
+    </script>
+</body>
+</html>
