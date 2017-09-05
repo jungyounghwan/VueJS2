@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:v-for="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns:v-bind="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <title>Hellow Vue</title>
@@ -54,17 +54,30 @@
             border-bottom: 1px solid black;
             line-height:100px;
         }
+        #app > .todo-list > ul > li.successTodo label {
+            text-decoration: line-through;
+        }
+        #app > .todo-list > ul > li label input[type=checkbox]{
+            width: 20px;
+            height: 20px;
+        }
         #app > .todo-list > ul > li > .todo-item {
             float: left;
             margin-left:20px;
         }
-        #app > .todo-list > ul > li > .success-button {
+        #app > .todo-list > ul > li > .delete-button {
             float: right;
             width: 100px;
+            margin-top:20px;
             height: 60px;
             margin-right:20px;
             border:1px solid green;
             border-radius: 5px;
+            font-size: 15pt;
+            text-align: center;
+            line-height: 60px;
+            background-color: #5f5f5f;
+            color: #fff;
         }
     </style>
 </head>
@@ -74,10 +87,12 @@
         <div class="todo-list">
             <input type="text" v-model="inputTodo" @keyup.enter="addTodo" placeholder="할 일을 적어주세요!">
             <ul>
-                <li v-for="todo in todos">
-                    <div class="todo-item">{{ todo }}</div>
-                    <div @click="remove" class="success-button">
-                        Success!
+                <li v-for="todo in todos" v-bind:class="{'successTodo':todo.checked}">
+                    <div class="todo-item">
+                        <label><input type="checkbox" v-model="todo.checked"> {{ todo.text }}</label>
+                    </div>
+                    <div @click="deleteTodo" class="delete-button">
+                        Delete!
                     </div>
                 </li>
             </ul>
@@ -90,16 +105,16 @@
             data: {
                 inputTodo: '',
                 todos: [
-                    '설거지 하기',
-                    '빨래 하기'
+                    {text : '설거지 하기', checked : false},
+                    {text : '빨래 하기', checked : false}
                 ]
             },
             methods: {
                 addTodo: function () {
-                    this.todos.push(this.inputTodo);
+                    this.todos.push({text: this.inputTodo, checked : false});
                     this.inputTodo = '';
                 },
-                remove: function (index) {
+                deleteTodo: function (index) {
                     this.todos.splice(index, 1);
                 }
             }
