@@ -1,9 +1,0 @@
-Vue 인스턴스
-- options 를 통해 ..
-- Data
-- Method
-- life Cycle
-- Vue 컴포넌트 == 확장된 Vue 인스턴스
-
-
-[참고자료]
