@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>클래스와 스타일 바인딩</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+<h1>인스턴스 라이프사이클 훅</h1>
+<script>
+    var vm = new Vue({
+                        data: {
+                            a: 1
+                        },
+                        created: function(){
+                            console.log('a is: ' + this.a)
+                        }
+                     })
+</script>
+</body>
+</html>

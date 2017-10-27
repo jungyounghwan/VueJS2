@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hellow Vue</title>
+    <style>
+        #box {
+            width: 100px;
+            height: 100px;
+            background-color: black;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <div id="box"></div>
+    </div>
+    <script src="../../js/vue.js"></script>
+    <script>
+        new Vue({
+            el : '#app',
+            mounted : function () {
+                var app = this.$el;
+                var box = app.querySelector('#box');
+                box.onclick = function () {
+                    box.style.backgroundColor = 'red';
+                }
+            }
+        });
+    </script>
+</body>
+</html>

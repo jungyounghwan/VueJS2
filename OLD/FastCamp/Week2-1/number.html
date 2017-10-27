@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>v-cloak</title>
+</head>
+<body>
+    <div id="app">
+        <input type="number" v-model.number="age"> <!-- change 이벤트 발생 시  -->
+        <div>{{ age }} 살</div>
+    </div>
+
+    <script src="../../js/vue.js"></script>
+    <script>
+        new Vue ({
+            el: '#app',
+            data: {
+                age: 24
+            }
+        })
+
+
+    </script>
+
+</body>
+</html>

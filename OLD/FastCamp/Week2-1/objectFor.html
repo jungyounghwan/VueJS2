@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hellow Vue</title>
+    <style>
+
+    </style>
+</head>
+<body>
+    <div id="app">
+        <ul>
+            <li v-for="item in object">
+                {{ item }}
+            </li>
+        </ul>
+    </div>
+    <script src="../../js/vue.js"></script>
+    <script>
+        new Vue({
+            el : '#app',
+            data: {
+                object: {
+                    b: 'b',
+                    a: 'a',
+                    c: 'c',
+                    d: 'd'
+                }
+            }
+        });
+    </script>
+</body>
+</html>

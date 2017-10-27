@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hellow Vue</title>
+</head>
+<body>
+<div id="app">
+    <input type="text" v-model="inputTodo" @keyup.enter="gogo">
+    <ul>
+        <li v-for="aaa in bbb">{{ aaa }}</li>
+    </ul>
+</div>
+<script src="../../js/vue.js"></script>
+<script>
+    new Vue({
+        el : '#app',
+        data : {
+            bbb : [
+                'a',
+                'b',
+                'c'
+            ],
+            inputTodo: ''
+        },
+        methods : {
+            gogo : function () {
+                this.bbb.push(this.inputTodo);
+            }
+        }
+    })
+</script>
+</body>
+</html>

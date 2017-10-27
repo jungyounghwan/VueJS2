@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hellow Vue</title>
+    <style>
+
+    </style>
+</head>
+<body>
+    <div id="app">
+        <simple-component :initial-counter="counter"></simple-component>
+    </div>
+    <script src="../../js/vue.js"></script>
+    <script>
+        var simpleComponent = {
+            props: ['initialCounter'],
+            template: '<button @click="addCounter">{{ counter }}</button>',
+            data: function () {
+                return {
+                    counter: this.initialCounter
+                }
+            },
+            methods: {
+                addCounter: function () {
+                    this.counter += 1;
+                }
+            }
+        };
+        new Vue({
+            el : '#app',
+            data: {
+                counter: 0
+            },
+            components: {
+                'simple-component' : simpleComponent
+            }
+        });
+    </script>
+</body>
+</html>

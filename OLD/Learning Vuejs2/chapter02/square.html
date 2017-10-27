@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script type="text/javascript" src="../../js/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <input v-model="item" type="text">
+    <div v-aaa="item"></div>
+</div>
+<script>
+Vue.directive('aaa', function (el, binding) {
+el.innerHTML = Math.pow(binding.value, 2);
+});
+
+new Vue({
+el: '#app',
+data: { item: 42 }
+});
+</script>
+</body>
+</html>
