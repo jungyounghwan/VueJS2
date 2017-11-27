@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>hellovuejs</title>
+    <script src="https://unpkg.com/vue/dist/vue.min.js"></script>
+    <style>
+        html, body {margin:0;padding:0;}
+        #example {height:98vh;min-height:100%;padding:5px;}
+    </style>
+</head>
+<body>
+    <div id="example" v-on:contextmenu="ctxStop">
+        <a href="https://facebook.com" @click="confirmFB">페이스북</a>
+    </div>
+
+    <script type="text/javascript">
+        var vm = new Vue ({
+            el: '#example',
+            methods: {
+                ctxStop: function (e) {
+                    console.log('contextmenu X')
+                    e.preventDefault();
+                },
+                confirmFB: function (e) {
+                    if (!confirm('페이스북으로 이동할까요?')) {
+                        e.preventDefault();
+                    }
+                }
+            }
+        })
+    </script>
+</body>
+</html>

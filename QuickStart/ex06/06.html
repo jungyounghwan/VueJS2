@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>component</title>
+    <script src="https://unpkg.com/vue/dist/vue.min.js"></script>
+</head>
+<body>
+<div id="app">
+    <select>
+        <!--<option-component></option-component> DOM 요소 랜더링 error -->
+        <option is="option-component"></option>
+        <option is="option-component"></option>
+    </select>
+</div>
+
+</body>
+<script type="text/javascript">
+    Vue.component('option-component', {
+        template: '<option>hello</option>'
+    })
+    var vm = new Vue({
+        el: '#app'
+    })
+</script>
+</html>

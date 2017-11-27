@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>hellovuejs</title>
+    <script src="https://unpkg.com/vue/dist/vue.min.js"></script>
+</head>
+<body>
+    <div id="example">
+        <span v-once>{{ message }}</span>
+    </div>
+
+    <script type="text/javascript">
+        var vm= new Vue ({
+            el: '#example',
+            data: {
+                message : "Hello World"
+            }
+        })
+    </script>
+</body>
+</html>

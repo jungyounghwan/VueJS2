@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>component</title>
+    <script src="https://unpkg.com/vue/dist/vue.min.js"></script>
+</head>
+
+<template id='listTemplate'>
+    <li>{{ message }}</li>
+</template>
+<script type="text/javascript">
+    Vue.component('list-component', {
+        template: '#listTemplate',
+        props: ['message']
+    })
+</script>
+<body>
+<div id="app">
+    <ul>
+        <li is="list-component" message="Hello"></li>
+        <li is="list-component" message="씬짜오"></li>
+        <li is="list-component" message="니하오마"></li>
+    </ul>
+</div>
+</body>
+<script type="text/javascript">
+    var vm = new Vue({
+        el: '#app'
+    })
+</script>
+</html>

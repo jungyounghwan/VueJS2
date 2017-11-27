@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>component</title>
+    <script src="https://unpkg.com/vue/dist/vue.min.js"></script>
+</head>
+
+<template id='listTemplate'>
+    <li>{{ myMessage }}</li>
+</template>
+<script type="text/javascript">
+    Vue.component('list-component', {
+        template: '#listTemplate',
+        props: ['myMessage']
+    })
+</script>
+<body>
+<div id="app">
+    <ul>
+        <li is="list-component" my-message="Hello"></li>
+        <li is="list-component" my-message="씬짜오"></li>
+        <li is="list-component" myMessage="'하오마"></li> <!-- 케밥 표기법을 사용하지 않아 error -->
+    </ul>
+</div>
+</body>
+<script type="text/javascript">
+    var vm = new Vue({
+        el: '#app'
+    })
+</script>
+</html>

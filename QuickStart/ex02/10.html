@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="ko" xmlns:v-bind="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>hellovuejs</title>
+    <script src="https://unpkg.com/vue/dist/vue.min.js"></script>
+    <style>
+        #list {width:400px;border:1px solid black;border-collapse:collapse;}
+        #list td, #list th {border:1px solid black;text-align:center;}
+        #list > thead > tr {color:yellow;background-color:purple;}
+        .divider {height:2px;background-color:gray;}
+    </style>
+</head>
+<body>
+<div id="exmaple">
+    <table id="list">
+        <thead>
+        <tr>
+            <th>번호</th>
+            <th>이름</th>
+            <th>전화번호</th>
+            <th>주소</th>
+        </tr>
+        </thead>
+        <tbody id="contacts">
+        <template v-for="(contact, index) in contacts">
+        <tr>
+            <td>{{ contact.no }}</td>
+            <td>{{ contact.name }}</td>
+            <td>{{ contact.tel }}</td>
+            <td>{{ contact.address }}</td>
+        </tr>
+        <tr class="divider" v-if="index % 5===4">
+            <td colspan="4"></td>
+        </tr>
+        </template>
+        </tbody>
+    </table>
+</div>
+
+<script type="text/javascript">
+    var model = {
+        "pageno": 1,
+        "pagesize": 10,
+        "totalcount": 100,
+        "contacts": [
+            { "no": 100, "name": "설현", "tel": "010-1111-1111", "address": "서울"},
+            { "no": 99, "name": "설현99", "tel": "010-2222-2222", "address": "서울1"},
+            { "no": 98, "name": "설현98", "tel": "010-3333-3333", "address": "서울2"},
+            { "no": 97, "name": "설현97", "tel": "010-4444-4444", "address": "서울3"},
+            { "no": 96, "name": "설현96", "tel": "010-5555-5555", "address": "서울4"},
+            { "no": 95, "name": "설현95", "tel": "010-6666-6666", "address": "서울5"},
+            { "no": 94, "name": "설현94", "tel": "010-7777-7777", "address": "서울6"},
+            { "no": 93, "name": "설현93", "tel": "010-8888-8888", "address": "서울7"},
+            { "no": 92, "name": "설현92", "tel": "010-9999-9999", "address": "서울8"},
+            { "no": 91, "name": "설현91", "tel": "010-0000-0000", "address": "서울9"}
+        ]
+    }
+    var list = new Vue ({
+        el: '#exmaple',
+        data: model
+    })
+</script>
+</body>
+</html>

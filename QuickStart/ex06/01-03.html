@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>component</title>
+    <script src="https://unpkg.com/vue/dist/vue.min.js"></script>
+</head>
+<body>
+<div id="app">
+    <hello-component></hello-component>
+    <hello-component></hello-component>
+    <hello-component></hello-component>
+</div>
+
+</body>
+<script type="text/javascript">
+    Vue.config.devtools = true;
+    Vue.component('hello-component', {
+        template: '<div>hello world</div>'
+    })
+    var vm = new Vue({
+        el: '#app'
+    })
+</script>
+</html>

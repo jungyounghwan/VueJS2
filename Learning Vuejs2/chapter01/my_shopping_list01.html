@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My shopping list</title>
+    <link rel="stylesheet" type="text/css" href="common.css"/>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script type="text/javascript" src="../../js/vue.js"></script>
+    <script type="text/javascript" src="common.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h2>My shopping list</h2>
+        <div class="input-group">
+            <input type="text" class="js-new-item from-control" placeholder="add shopping list item">
+            <span class="input-group-btn">
+                <button type=button" @click="addItem" class="js-add btn btn-default">Add!</button>
+            </span>
+        </div>
+        <ul>
+            <li>
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" class="js-item" name="list"> Carrot
+                    </label>
+                </div>
+            </li>
+            <li>
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" class="js-item" name="list"> Book
+                    </label>
+                </div>
+            </li>
+            <li>
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" class="js-item" name="list"> Gift for aunt's birthday
+                    </label>
+                </div>
+            </li>
+        </ul>
+        <div class="footer">
+            <hr>
+            <em>Change the title of your shopping list here</em>
+            <input type="text" class="js-change-title" value="My Shopping List">
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>hellovuejs</title>
+    <script src="https://unpkg.com/vue/dist/vue.min.js"></script>
+</head>
+<body>
+    <div id="example">
+        <button id="a" v-bind:style="[ myColor, myLayout ]">테스트</button>
+    </div>
+
+    <script type="text/javascript">
+        var vm = new Vue ({
+            el: '#example',
+            data: {
+                myColor: {backgroundColor: 'purple', color: 'yellow'},
+                myLayout: {width: '150px', height: '80px', textAlign: 'center'}
+            }
+        })
+    </script>
+</body>
+</html>

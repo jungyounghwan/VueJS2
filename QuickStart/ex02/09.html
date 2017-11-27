@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="ko" xmlns:v-bind="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>hellovuejs</title>
+    <script src="https://unpkg.com/vue/dist/vue.min.js"></script>
+</head>
+<body>
+    <div id="exmaple">
+        <select id="regions">
+            <option disabled="disabled" selected>지역을 선택하세요</option>
+            <option v-for="(val, key) in regions" v-bind:value="key">{{ val }}</option>
+        </select>
+    </div>
+
+    <script type="text/javascript">
+        var regions = {
+            "a": "Asia",
+            "b": "America",
+            "c": "Europe",
+            "d": "Africa",
+            "e": "Oceania"
+        }
+        var list = new Vue ({
+            el: '#exmaple',
+            data: { regions : regions }
+        })
+    </script>
+</body>
+</html>
