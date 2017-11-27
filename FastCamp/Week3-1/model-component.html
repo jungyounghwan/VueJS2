@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-on="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Hellow Vue</title>
+    <style>
+
+    </style>
+</head>
+<body>
+    <div id="app">
+        <phone-validate v-model="phoneNumber"></phone-validate>
+    </div>
+    <script src="../../js/vue.js"></script>
+    <template id="phone-validate-template">
+        <div>
+            <label>
+                <input type="text" :value="value" v-on:input="validate">
+                <br>
+                상태 :  {{ statusMessage }}
+            </label>
+        </div>
+    </template>
+    <script>
+        Vue.component('phone-validate', {
+            props: ['value'],
+            template: '#phone-validate-template',
+            data: function() {
+                return {status: false};
+            },
+            computed: {
+                statusMessage: function () {
+                    return this.status ? '가능' : '불가능';
+                }
+            },
+            methods: {
+                validate: function (event) {
+                    var phoneNumber = event.target.value;
+                    if (!/^d{3}-\d{3,4}-\d{4}$/i.test(phoneNumber)) {
+                        this.status = false;
+                    } else {
+                        this.status = true;
+                    }
+                    this.$emit('input', phoneNumber);
+                }
+            }
+        });
+
+        new Vue({
+            el : '#app',
+            data: {
+                phoneNumber: ''
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hellow Vue</title>
+    <style>
+
+    </style>
+</head>
+<body>
+    <div id="app">
+        one: <input type="checkbox" value="one" v-model="checked"><br>
+        two: <input type="checkbox" value="two" v-model="checked"><br>
+        three: <input type="checkbox" value="three" v-model="checked"><br>
+        four: <input type="checkbox" value="four" v-model="checked"><br>
+        <div>{{ checked }}</div>
+    </div>
+    <script src="../../js/vue.js"></script>
+    <script>
+        new Vue({
+            el : '#app',
+            data: {
+                checked: []
+            }
+        });
+    </script>
+</body>
+</html>

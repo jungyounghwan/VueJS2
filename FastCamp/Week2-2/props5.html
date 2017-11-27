@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hellow Vue</title>
+    <style>
+
+    </style>
+</head>
+<body>
+    <div id="app">
+        <simple-component :price="price"></simple-component>
+    </div>
+    <script src="../../js/vue.js"></script>
+    <script>
+        var simpleComponent = {
+            props: {
+                name: {
+                    type: String,
+                    default: '구형 스마트폰' /* 기본값 설정 */
+                },
+                price: {
+                    type: Number,
+                    validator: function (value) { /* 데이터 정상 여부 판단 */
+                        return value >= 500000
+                    }
+                },
+                message: {
+                    type: [String, Number],
+                    required: true /* true, false 값 요구 */
+                },
+                object: {
+                    type: Object, /* 오브젝트일 때 기본값은 function 값으로 넘겨야 한다 (object, Array)*/
+                    default: function () {
+                        return { message: '메세지!' }
+                    }
+                }
+            },
+            template: '<div>{{ name }}, {{ price }}원, {{ message }}, {{ object.message }}</div>',
+        }
+        new Vue({
+            el : '#app',
+            data: {
+                name: '최신형 핸드폰',
+                price: 125000,
+                message: '최신형 스마트폰 싸게 팝니다.'
+            },
+            components: {
+                'simple-component' : simpleComponent
+            }
+        });
+    </script>
+</body>
+</html>

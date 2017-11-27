@@ -1,0 +1,20 @@
+vue 시작하기 - 설치 part
+1. standalone
+2. npm
+3. bower
+
+설치하기
+1. node js 설치
+2. npm install vue
+3. npm install -g vue-cli
+4. vue init webpack "프로젝트명"
+
+git 설치
+1. https://git-scm.com
+
+git 에 브라우저 적용
+1. "https://자신의GithubID.github.io/설정한Repo이름/"
+
+
+[참고자료]
+- jsfiddle.net

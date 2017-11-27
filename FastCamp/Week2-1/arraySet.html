@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hellow Vue</title>
+    <style>
+
+    </style>
+</head>
+<body>
+    <div id="app">
+        <ul>
+            <li v-for="item in array">
+                {{ item }}
+            </li>
+        </ul>
+    </div>
+    <script src="../../js/vue.js"></script>
+    <script>
+        new Vue({
+            el : '#app',
+            data: {
+                array: [
+                    'a',
+                    'b',
+                    'c',
+                    'd'
+                ]
+            },
+            mounted: function () {
+                this.$set(this.array, 0, 'd')
+            }
+        });
+    </script>
+</body>
+</html>

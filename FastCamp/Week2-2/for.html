@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hellow Vue</title>
+    <style>
+
+    </style>
+</head>
+<body>
+    <div id="app">
+        <ul>
+            <li v-for="comment in comments" :key="comment" is="CommentComponent" :comment="comment"></li>
+            <!-- :key 는 성능향상을 시킨다.(애용량 컴포넌트시...사용하면 좋다) -->
+        </ul>
+    </div>
+    <script src="../../js/vue.js"></script>
+    <script>
+        var commentComponent = {
+            props: ['comment'],
+            template: '<li>{{ comment }}</li>'
+        };
+        new Vue({
+            el : '#app',
+            data: {
+                comments : [
+                    '안녕하세요',
+                    '방가방가',
+                    '하이루'
+                ]
+            },
+            components: {
+                CommentComponent: commentComponent
+            }
+        });
+    </script>
+</body>
+</html>

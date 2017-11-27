@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hellow Vue</title>
+</head>
+<body>
+    <div id="app">
+        <input @keyup.enter="save" placeholder="enter">
+        <input @keyup.shift.enter="save" placeholder="shift+enter">
+    </div>
+    <script src="../../js/vue.js"></script>
+    <script>
+        new Vue({
+            el : '#app',
+            methods: {
+                save: function (message) {
+                    confirm('저장 하시겠습니까');
+                }
+            }
+        })
+    </script>
+</body>
+</html>

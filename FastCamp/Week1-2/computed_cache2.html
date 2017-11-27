@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-on="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Hellow Vue</title>
+</head>
+
+<body>
+<div id="app">
+    <button @click="perfomance">측정</button>
+</div>
+
+<script src="../../js/vue.js"></script>
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            counter: ''
+        },
+        methods: {
+            perfomance: function () {
+                var t0 = performance.now();
+                this.counterMethod();
+                var t1 = performance.now();
+                console.log('counterMethod: ' + (t1 - t0) + 'ms');
+
+                t0 = performance.now();
+                this.counterMethod();
+                t1 = performance.now();
+                console.log('counterMethod: ' + (t1 - t0) + 'ms');
+
+                t0 = performance.now();
+                this.computedCounter;
+                t1 = performance.now();
+                console.log('computedCounter: ' + (t1 - t0) + 'ms');
+
+                t0 = performance.now();
+                this.computedCounter;
+                t1 = performance.now();
+                console.log('computedCounter: ' + (t1 - t0) + 'ms');
+            },
+            counterMethod: function () {
+                this.counter = 0;
+                for (var i=0; i<1000000; i++) {
+                    this.counter += 1;
+                }
+                return this.counter;
+            }
+        },
+        computed: {
+            computedCounter: function () {
+                this.counter = 0;
+                for (var i=0; i<1000000; i++) {
+                    this.counter += 1;
+                }
+                return this.counter;
+            }
+        }
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-on="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Hellow Vue</title>
+</head>
+<body>
+    <div id="app">
+        <input v-model="inputTodo" type="text" placeholder="keyup" v-on:keyup="log">
+        <input v-model="inputTodo" type="text" placeholder="keyup.enter" v-on:keyup.enter=addTodo>
+        <button type="button" v-on:click="addTodo">할일등록</button>
+        <ul>
+            <li v-for="todo in todos">{{todo}}</li>
+        </ul>
+    </div>
+    <script src="../js/vue.js"></script>
+    <script>
+        new Vue({
+            el : '#app',
+            data: {
+                todos :[
+                    '빨래하기',
+                    '청소하기',
+                    '잠자기'
+                ],
+                inputTodo: ''
+            },
+            methods: {
+                addTodo: function () {
+                    this.todos.push(this.inputTodo);
+                    this.inputTodo = '';
+                },
+                log: function () {
+                    console.log(this.inputTodo);
+                }
+            }
+        })
+    </script>
+</body>
+</html>

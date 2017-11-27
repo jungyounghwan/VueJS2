@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hellow Vue</title>
+    <style>
+
+    </style>
+</head>
+<body>
+    <div id="app">
+        <post>
+            <h1 slot="title"> {{ title }}</h1>
+            <p slot="contents"> {{ contents }}</p>
+            <!-- 이 내용이 slot 에 전달됩니다 -->
+        </post>
+    </div>
+    <script src="../../js/vue.js"></script>
+    <template id="post-template">
+        <div>
+            <slot name="title">제목 입니다.</slot>
+            <slot name="contents">내용입니다.</slot>
+        </div>
+    </template>
+    <script>
+        Vue.component('post', {
+            template: '#post-template'
+        });
+
+        new Vue({
+            el : '#app',
+            data: {
+                title: '제목입니다 {{}}',
+                contents: '내용입니다 {{}}'
+            }
+        });
+    </script>
+</body>
+</html>

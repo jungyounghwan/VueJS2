@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hellow Vue</title>
+    <style>
+
+    </style>
+</head>
+<body>
+    <div id="app">
+        <form-helper title="로그인하기" button-name="로그인" v-on:submit="login">
+            <label>
+                로그인 : <input type="text">
+            </label>
+            <label>
+                비밀번호 : <input type="password">
+            </label>
+        </form-helper>
+        <form-helper title="회원가입하기" button-name="회원가입" v-on:submit="member">
+            <label>
+                아이디 : <input type="text">
+            </label>
+            <label>
+                비밀번호 : <input type="password">
+            </label>
+        </form-helper>
+    </div>
+    <script src="../../js/vue.js"></script>
+    <template id="form-helper-template">
+        <form v-on:submit.prevent="$emit('submit')">
+            <h1>{{ title }}</h1>
+            <slot></slot>
+            <button>{{ buttonName }}</button>
+        </form>
+    </template>
+    <script>
+        Vue.component('form-helper', {
+            template: '#form-helper-template',
+            props: ['title', 'button-name']
+        });
+
+        new Vue({
+            el : '#app',
+            methods: {
+                login : function () {
+                    alert('로그인됨!!!!');
+                },
+                member : function () {
+                    alert('회원가입됨!!!!');
+                }
+            }
+        });
+    </script>
+</body>
+</html>
