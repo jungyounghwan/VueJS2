@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>WebChat</title>
+    <script src="/lib/socket.io.js"></script>
+    <script src="/lib/vue.min.js"></script>
+    <script src="http://code.jquery.com/jquery-3.1.0.min.js"></script>
+    <script>
+        var socket = io();
+    </script>
+    <style>
+        body {margin:0; padding:0;}
+        ul , li {list-style: none; padding:0 10px; margin:0;}
+        #chatlist {width: 50%;
+            height:500px;
+            border:3px solid black;
+            overflow-y:scroll;
+            line-height:1.8;}
+        .chatting li {display:inline-block;margin-bottom:30px}
+        .chatting li.seller_say {float:right;clear:both}
+        .chatting li.seller_say .chatting_data .c_date {margin-bottom:5px;padding-right:10px;color:#999;font-size:13px;text-align:right}
+        .chatting li.seller_say .chatting_data .bubble {background:url('../images/bg_msg_seller.png') no-repeat 100% 0}
+        .chatting li.seller_say .chatting_data .bubble > .bubble_msg {max-width:430px;margin-right:11px;padding:20px 15px;color:#333;font-size:14px;line-height:22px;background:#c7dbff;border-top-left-radius:10px;border-bottom-right-radius:10px;border-bottom-left-radius:10px}
+        .chatting li.seller_say .chatting_data .bubble > .bubble_msg .cancle_txt {color:#4369aa;}
+        .chatting li.seller_say .chatting_data .bubble > .bubble_msg pre {word-break:break-all;white-space:pre-wrap;line-height:1}
+
+    </style>
+</head>
+<body>
+<div id="app">
+    {{ GetChat }}
+    <ul id="chatlist" class="chatting"></ul>
+
+    <input type="text" id="chatval" @keyup.13="ChatSend"/>
+    <button @click.1="ChatSend" >전송</button>
+
+</div>
+</body>
+<script>
+    var app = new Vue({
+        el : "#app",
+        data: {
+
+        },
+        computed:{
+            GetChat : function(){
+                socket.on('client',function(msg){
+                    var html = '';
+                    html += '<li class="seller_say">';
+                    html += '   <div class="chatting_data">';
+                    html += '       <p class="c_date">';
+                    html += '           <span>date</span>';
+                    html += '           <span class="red_circle"></span>';
+                    html += '       </p>';
+                    html += '       <div class="bubble">';
+                    html += '           <div class="bubble_msg">';
+                    html += '               <pre>'+msg+'</pre>';
+                    html += '           </div>';
+                    html += '       </div>';
+                    html += '   </div>';
+                    html += '</li>';
+                    $('#chatlist').append(html);
+                });
+            }
+        },
+        methods : {
+            ChatSend : function(){
+                if($("#chatval").val() == ""){
+                    return false
+                }else{
+                    socket.emit("client", $("#chatval").val());
+                        $("#chatval").val("");
+                        return false;
+                }
+            }
+        }
+    });
+</script>
+</html>
